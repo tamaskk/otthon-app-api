@@ -18,17 +18,16 @@ const handler = async (
     optionsSuccessStatus: 200,
   });
 
-  res.status(200).json({ name: 'John Doe' });
+  
+    const client = await connectToDatabase();
+    
+  res.status(200).json({ name: 'Csatlakozva aclienthez' });
 
-//   const client = await connectToDatabase();
-
-//   if (req.method === "GET") {
 //     const shoppingListCollection = client.db().collection("shopping-list");
 //     const result = await shoppingListCollection
 //       .find({ isDone: false })
 //       .toArray();
 //     res.status(200).json({ success: true, data: result });
-//   }
 };
 
 export default handler;
