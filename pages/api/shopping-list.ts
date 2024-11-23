@@ -1,18 +1,16 @@
-import Cors from 'nextjs-cors';
+import NextCors from 'nextjs-cors';
 import { connectToDatabase } from "@/db/db";
 import { NextApiRequest, NextApiResponse } from "next";
 import { ObjectId } from "mongodb";
-import NextCors from 'nextjs-cors';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         // Allow any origin and any method
         await NextCors(req, res, {
-            // Options
             methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-            origin: '*',
-            optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-         });
+            origin: '*', // Allow all origins
+            optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+        });
 
         const client = await connectToDatabase();
 
