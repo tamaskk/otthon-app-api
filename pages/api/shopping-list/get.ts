@@ -1,7 +1,7 @@
 import Cors from 'nextjs-cors';
 import { connectToDatabase } from "@/db/db";
 import { NextApiRequest, NextApiResponse } from "next";
-import { ObjectId } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
 type Data = {
     name: string;
@@ -19,7 +19,9 @@ const handler = async (
   });
 
   
-    const client = await connectToDatabase();
+  const client = await MongoClient.connect(
+    `mongodb+srv://kalmantamaskrisztian:rruwgVAvx2lrA1le@otthon-app.gtoam.mongodb.net/?retryWrites=true&w=majority&appName=otthon-app`,
+    );
     
   res.status(200).json({ name: 'Csatlakozva aclienthez' });
 
