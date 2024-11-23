@@ -6,8 +6,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'https://api.example.com/:path*',
+        source: '/api/:path*',  // Source path pattern
+        destination: 'https://otthon-app-api.vercel.app/api/:path*',  // Actual destination URL
       },
     ]
   },
