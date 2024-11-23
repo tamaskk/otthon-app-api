@@ -11,6 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       "Access-Control-Allow-Headers",
       "Content-Type, Authorization"
     );
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Allow any origin and any method
     await NextCors(req, res, {
